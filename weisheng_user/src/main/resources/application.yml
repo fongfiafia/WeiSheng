@@ -10,6 +10,20 @@ spring:
     url: jdbc:mysql://localhost:3306/weisheng_user?characterEncoding=UTF8
     username: root
     password: 123
+
+  devtools:
+    restart:
+      # 热部署开关
+      enabled: true    
+mybatis:
+    # 搜索指定包别名
+#    typeAliasesPackage: com.weisheng.entity
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+    mapperLocations: classpath*:mybatis/*Mapper.xml
+    # 加载全局的配置文件
+#    configLocation: classpath:mybatis/mybatis-config.xml  
+
+
 #  jpa: 
 #    database: mysql
 #    show-sql: true
@@ -19,13 +33,7 @@ spring:
 #    com.weisheng: debug
 #    org.springframework: warn
 # MyBatis配置
-mybatis:
-    # 搜索指定包别名
-#    typeAliasesPackage: com.weisheng.entity
-    # 配置mapper的扫描，找到所有的mapper.xml映射文件
-    mapperLocations: classpath*:mybatis/*Mapper.xml
-    # 加载全局的配置文件
-#    configLocation: classpath:mybatis/mybatis-config.xml    
+  
 #eureka:
 #  client:
 #    service-url:

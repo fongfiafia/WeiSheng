@@ -21,6 +21,11 @@ public class LoginEntity {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public String toString() {
+		return "LoginEntity [loginname=" + loginname + ", password=" + password + "]";
+	}
 	
 	
 }
