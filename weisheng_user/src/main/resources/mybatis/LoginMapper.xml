@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.weisheng.dao.LoginDao">
+<!-- 	<resultMap id="deptResult" type="SysDept">
+		<id     property="deptId"   column="dept_id"     />
+		<result property="parentId" column="parent_id"   />
+		<result property="deptName" column="dept_name"   />
+		<result property="orderNum" column="order_num"   />
+		<result property="leader"   column="leader"      />
+		<result property="status"   column="dept_status" />
+	</resultMap> -->  <!-- 这里我们用不到，他的作用是给数据库的字段和我们的实体类相对应的 -->
+
+	<select id="getUser" parameterType="String" resultType="com.weisheng.entity.User">
+		select * from rbac_user where loginName = #{loginname}
+	</select>
+
+</mapper>
