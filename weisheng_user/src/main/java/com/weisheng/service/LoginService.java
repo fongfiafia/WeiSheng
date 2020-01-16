@@ -13,15 +13,12 @@ public class LoginService {
 	@Autowired
 	private LoginDao loginDao;
 	
-	public boolean login(LoginEntity entity) {
+	public User login(LoginEntity entity) {
 		User user = loginDao.getUser(entity.getLoginname());
-		if(user == null) {
-			return false;
+		if((user == null) || (!(user.getPassword().equals(entity.getPassword())))) {
+			return null;
 		}
-		if(!(user.getPassword().equals(entity.getPassword()))) {
-			return false;
-		}
-		return true;
+		return user;
 	}
 
 }

@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.weisheng.common.entity.Result;
 import com.weisheng.common.entity.StatusCode;
 import com.weisheng.entity.LoginEntity;
+import com.weisheng.entity.User;
 import com.weisheng.service.LoginService;
 
 @RestController
-@RequestMapping("/system")
+//@RequestMapping("/system")
 @CrossOrigin
 public class LoginController {
 	
@@ -33,11 +34,12 @@ public class LoginController {
 	public Result login(@RequestBody LoginEntity entity ) {
 		Map<String, String> map = new HashMap<String, String>();
 		System.out.println(entity);
-		boolean flag = loginServie.login(entity);
-		if (!flag) {
+		User user = loginServie.login(entity);
+		if (user == null) {
 			return new Result(true,StatusCode.OK,"登录失败");
 		}
 		map.put("token","admin");
+		map.put("userid",user.getUserid());
 		return new Result(true,StatusCode.OK,"登录成功",map);
 	}
 	

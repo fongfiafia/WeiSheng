@@ -10,6 +10,9 @@
 		<module>weisheng_base</module>
 		<module>weisheng_user</module>
 		<module>weisheng_common</module>
+		<module>weisheng_customer</module>
+		<module>weisheng_eureka</module>
+		<module>weisheng_zuul</module>
     </modules>
   
 

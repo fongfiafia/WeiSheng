@@ -1,16 +1,15 @@
 server: 
-  port: 9001
+  port: 9002
   servlet: 
     context-path: /
 spring: 
   application:  
-    name: weisheng-user #指定服务名
+    name: weisheng-customer #指定服务名
   datasource:  
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/weisheng?characterEncoding=UTF8
     username: root
     password: 123
-
   devtools:
     restart:
       # 热部署开关
@@ -28,9 +27,15 @@ eureka:
        defaultZone: http://127.0.0.1:6868/eureka/ # 表示去这个url注册或者拿取
   instance:
     prefer-ip-address: true # 用来允许跨域访问
-feign:
-  hystrix:
-   enabled: true
+# PageHelper分页插件
+pagehelper: 
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql 
+#feign:
+#  hystrix:
+#   enabled: true
     
 
 

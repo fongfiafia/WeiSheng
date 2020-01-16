@@ -1,0 +1,29 @@
+server: 
+  port: 9011
+spring: 
+  application:  
+    name: weisheng-zuul #指定服务名
+eureka:
+  client:
+    service-url:
+       defaultZone: http://127.0.0.1:6868/eureka/ # 表示去这个url注册或者拿取
+  instance:
+    prefer-ip-address: true # 用来允许跨域访问
+zuul: ## 指定相关url 去访问哪个微服务
+  routes:
+    weisheng-customer:
+      path: /customer/**
+      service-id: weisheng-customer
+    weisheng-user1:
+      path: /user/**
+      service-id: weisheng-user
+    weisheng-user:
+      path: /system/**
+      url: weisheng-user
+#    tensquare-base:
+#      path: /base/**
+#      service-id: tensquare-base
+#    tensquare-base:
+#      path: /base/**
+#      service-id: tensquare-base  
+    
